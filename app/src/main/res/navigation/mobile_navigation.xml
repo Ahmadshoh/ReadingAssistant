@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/miAll">
+
+    <fragment
+        android:id="@+id/miAll"
+        android:name="com.example.readingassistant.screens.allBook.AllBookFragment"
+        android:label="Все книги"
+        tools:layout="@layout/fragment_all_book" />
+
+    <fragment
+        android:id="@+id/miPresence"
+        android:name="com.example.readingassistant.screens.allBook.AddBookFragment"
+        android:label="Добавить книгу"
+        tools:layout="@layout/fragment_add_book" />
+</navigation>

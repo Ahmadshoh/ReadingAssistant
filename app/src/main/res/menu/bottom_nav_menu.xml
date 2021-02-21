@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/miAll"
+        android:title="Все книги"
+        android:icon="@drawable/ic_book" />
+
+    <item
+        android:id="@+id/miPresence"
+        android:title="При наличии"
+        android:icon="@drawable/ic_presence" />
+
+    <item
+        android:id="@+id/placeholder"
+        android:title="" />
+
+    <item
+        android:id="@+id/miReading"
+        android:title="При чтении"
+        android:icon="@drawable/ic_reading" />
+
+    <item
+        android:id="@+id/miEnd"
+        android:title="Закончено"
+        android:icon="@drawable/ic_end" />
+</menu>
