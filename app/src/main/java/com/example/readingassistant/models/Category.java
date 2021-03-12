@@ -12,7 +12,7 @@ import java.util.Objects;
 @Entity(tableName = "categories")
 public class Category implements Parcelable {
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public int categoryId;
 
     @ColumnInfo(name = "name")
     public String name;
@@ -20,7 +20,7 @@ public class Category implements Parcelable {
     public Category() {}
 
     protected Category(Parcel in) {
-        id = in.readInt();
+        categoryId= in.readInt();
         name = in.readString();
     }
 
@@ -43,7 +43,7 @@ public class Category implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(categoryId);
         dest.writeString(name);
     }
 
@@ -52,12 +52,17 @@ public class Category implements Parcelable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Category category = (Category) o;
-        return id == category.id &&
+        return categoryId== category.categoryId&&
                 Objects.equals(name, category.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(categoryId, name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

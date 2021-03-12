@@ -38,12 +38,6 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 public class AllBookFragment extends Fragment {
 
-    private Toolbar mToolbar;
-    private BottomNavigationView bottomNavigationView;
-    private DrawerLayout drawerLayout;
-    private NavigationView navigationView;
-    private AppBarConfiguration mAppBarConfiguration;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +56,9 @@ public class AllBookFragment extends Fragment {
 
         RecyclerView recyclerView = view.findViewById(R.id.all_book);
 
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(super.getContext(), RecyclerView.VERTICAL, false);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.addItemDecoration(new DividerItemDecoration(super.requireContext(), DividerItemDecoration.VERTICAL));
 
         Adapter adapter = new Adapter();
         recyclerView.setAdapter(adapter);
@@ -76,10 +70,6 @@ public class AllBookFragment extends Fragment {
                 adapter.setItems(books);
             }
         });
-
-//        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallBack);
-//        itemTouchHelper.attachToRecyclerView(recyclerView);
-
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT) {
@@ -96,6 +86,7 @@ public class AllBookFragment extends Fragment {
                     case ItemTouchHelper.LEFT:
                         Book book = adapter.getBookAt(position);
 
+//                        App.getInstance().getBookDao().delete
                         App.getInstance().getBookDao().delete(book);
                         adapter.notifyItemRemoved(position);
                         Snackbar.make(recyclerView, book.title, Snackbar.LENGTH_LONG)
@@ -125,5 +116,4 @@ public class AllBookFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
     }
-
 }

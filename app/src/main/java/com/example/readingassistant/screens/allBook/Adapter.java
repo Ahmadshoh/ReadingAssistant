@@ -27,7 +27,7 @@ public class Adapter extends RecyclerView.Adapter<com.example.readingassistant.s
         sortedList = new SortedList<>(Book.class, new SortedList.Callback<Book>() {
             @Override
             public int compare(Book o1, Book o2) {
-                return (int) (o2.id - o1.id);
+                return (int) (o2.bookId - o1.bookId);
             }
 
             @Override
@@ -42,7 +42,7 @@ public class Adapter extends RecyclerView.Adapter<com.example.readingassistant.s
 
             @Override
             public boolean areItemsTheSame(Book item1, Book item2) {
-                return item1.id == item2.id;
+                return item1.bookId == item2.bookId;
             }
 
             @Override

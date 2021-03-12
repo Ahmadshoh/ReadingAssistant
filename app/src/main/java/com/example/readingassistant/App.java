@@ -6,12 +6,14 @@ import androidx.room.Room;
 
 import com.example.readingassistant.data.AppDatabase;
 import com.example.readingassistant.data.BookDao;
+import com.example.readingassistant.data.CategoryDao;
 
 
 public class App extends Application {
 
     private AppDatabase database;
     private BookDao bookDao;
+    private CategoryDao categoryDao;
 
     private static App instance;
 
@@ -28,6 +30,7 @@ public class App extends Application {
         database = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "reading_assistant").allowMainThreadQueries().build();
 
         bookDao = database.bookDao();
+        categoryDao = database.categoryDao();
     }
 
     public AppDatabase getDatabase() {
@@ -45,6 +48,15 @@ public class App extends Application {
 
     public void setBookDao(BookDao bookDao) {
         this.bookDao = bookDao;
+    }
+
+
+    public CategoryDao getCategoryDao() {
+        return categoryDao;
+    }
+
+    public void setCategoryDao(CategoryDao categoryDao) {
+        this.categoryDao = categoryDao;
     }
 
 }

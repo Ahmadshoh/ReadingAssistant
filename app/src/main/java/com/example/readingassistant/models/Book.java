@@ -13,7 +13,7 @@ import java.util.Objects;
 @Entity(tableName = "books")
 public class Book implements Parcelable{
     @PrimaryKey(autoGenerate = true)
-    public int id;
+    public int bookId;
 
     @ColumnInfo(name = "title")
     public String title;
@@ -37,7 +37,7 @@ public class Book implements Parcelable{
     public Book() {}
 
     protected Book(Parcel in) {
-        id = in.readInt();
+        bookId = in.readInt();
         title = in.readString();
         author = in.readString();
         description = in.readString();
@@ -64,7 +64,7 @@ public class Book implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(id);
+        dest.writeInt(bookId);
         dest.writeString(title);
         dest.writeString(author);
         dest.writeString(description);
@@ -77,7 +77,7 @@ public class Book implements Parcelable{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Book book = (Book) o;
-        return id == book.id &&
+        return bookId == book.bookId &&
                 available == book.available &&
                 pageCount == book.pageCount &&
                 Objects.equals(title, book.title) &&
@@ -87,6 +87,6 @@ public class Book implements Parcelable{
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, author, description, available, pageCount);
+        return Objects.hash(bookId, title, author, description, available, pageCount);
     }
 }

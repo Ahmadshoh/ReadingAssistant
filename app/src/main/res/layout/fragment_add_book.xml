@@ -1,26 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.allBook.AddBookFragment"
-    android:background="?android:attr/windowBackground"
-    android:id="@+id/add_book_fragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/mainBackgroundColor"
+    android:id="@+id/addBookFragment"
+    android:padding="50dp">
 
+<!--        <com.google.android.material.chip.Chip-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Hello world"-->
+<!--            style="@style/Widget.MaterialComponents.Chip.Filter"/>-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="25dp"
-        android:layout_marginLeft="45dp"
-        android:layout_marginRight="45dp">
-
-        <Button
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/categories"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/addIncomeBtn"
-            android:text="Добавить"/>
-    </LinearLayout>
+            android:orientation="horizontal"/>
 
-</FrameLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Название книги"
+            android:id="@+id/title"
+            android:layout_below="@+id/categories" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/author"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="15dp"
+            android:hint="Автор"/>
+
+        <EditText
+            android:id="@+id/pageCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/author"
+            android:layout_marginTop="15dp"
+            android:hint="Количество страниц"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:layout_below="@+id/pageCount"
+            android:layout_marginTop="15dp"
+            android:hint="Описание"/>
+<!--        <Spinner-->
+<!--            android:id="@+id/category"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/pageCount"-->
+<!--            android:layout_marginTop="15dp"-->
+<!--            android:autofillHints="Выберите категорию"/>-->
+
+<!--        <Spinner-->
+<!--            android:id="@+id/status"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/category"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:autofillHints="Статус"/>-->
+
+
+
+
+</RelativeLayout>
